@@ -15,10 +15,15 @@ window.onload = function() {
     for (let a = 0; a < adj.length; a++) {
       for (let n = 0; n < noun.length; n++) {
         for (let e = 0; e < end.length; e++) {
-          domainName.push(" " + pronoun[p] + adj[a] + noun[n] + end[e]);
+          domainName.push(
+            pronoun[p].concat(adj[a] + noun[n] + end[e] + "<br>")
+          );
         }
       }
     }
+  }
+  for (let domain in domainName) {
+    document.write("<p><strong>" + domainName[domain] + "</strong></p>");
   }
   console.log(domainName);
   document.getElementById("domain.results").innerHTML = domainName;
